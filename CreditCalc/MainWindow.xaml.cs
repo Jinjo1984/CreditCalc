@@ -39,7 +39,7 @@ namespace CreditCalc
         }
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            List<Credits> pay = new List<Credits>(); //List в котором будет список экземпляров класса Crelits
+            List<Credits> pay = new List<Credits>(); //List в котором будет список экземпляров класса Credits
             
             try {
                 SumCredit = Convert.ToDouble(SummCreditTextBox.Text);

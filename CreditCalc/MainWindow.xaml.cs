@@ -40,7 +40,11 @@ namespace CreditCalc
         private void button_Click(object sender, RoutedEventArgs e)
         {
             List<Credits> pay = new List<Credits>(); //List в котором будет список экземпляров класса Credits
-            
+            labelRamains.Content = null;
+            double mainDebt = 0;
+            double percentPay = 0;
+            double percentPayCount = 0;
+            double SumDebt = 0;
             try {
                 SumCredit = Convert.ToDouble(SummCreditTextBox.Text);
                 PercentCredit = Convert.ToDouble(PercentCreditTextBox.Text) / 100;
@@ -48,9 +52,6 @@ namespace CreditCalc
                 Credits cred = new Credits { Month = null,Pays = 0,Ramains = 0,MainDebt = 0,PercentPay = 0 }; //Создаю экземпляр класса Credit с обнулеными переменными
                 double[] Pays = new double[Convert.ToInt32(MonthQuantity)];
                 RamainsPay = SumCredit;
-                double mainDebt = 0;
-                double percentPay = 0;
-                double percentPayCount = 0;
                 mainDebt = SumCredit / MonthQuantity;
                 int month = 1;
                 for (int i = 0; i < MonthQuantity; i++)
@@ -66,6 +67,9 @@ namespace CreditCalc
                 }
             }
             catch { MessageBox.Show("Неверный формат числа", "Ошибка"); }
+            SumDebt = SumCredit + percentPayCount;
+            labelRamains.Content =Math.Round( percentPayCount,2);
+            labelSumCredit.Content =Math.Round( SumDebt,2);
             listView.ItemsSource = pay; 
         }
     }

@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CreditCalc"
         mc:Ignorable="d"
-        Title="MainWindow" Height="624" Width="820">
+        Title="Кредитный калькулятор" Height="624" Width="820" ResizeMode="NoResize" Icon="C:\Users\Георгий\Documents\CreditCalc\CreditCalc\Resource\creditIco.ico">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-            <GradientStop Color="White" Offset="0.04"/>
+            <GradientStop Color="White" Offset="0.02"/>
             <GradientStop Color="#FF19E292" Offset="0.3"/>
             <GradientStop Color="#FF8CE906" Offset="0.8"/>
         </LinearGradientBrush>
@@ -79,10 +79,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label x:Name="label" Content="Переплата по процентам:" Grid.Column="2" Margin="61,10,0,0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Century Gothic"/>
-        <Label x:Name="labelRamains" Content="" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Century Gothic"/>
-        <Label x:Name="labelS" Content="Общая стоимость кредита:" Margin="0,9,0,0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Century Gothic"/>
-        <Label x:Name="labelSumCredit" Content="" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Century Gothic"/>
+        <Label x:Name="label" Content="Переплата по процентам:" Grid.Column="2" Margin="36,10,0,0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14"/>
+        <Label x:Name="labelRamains" Content="" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Century Gothic" Margin="122,41,0,0" FontSize="14"/>
+        <Label x:Name="labelS" Content="Общая стоимость кредита:" Margin="0,9,0,0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14"/>
+        <Label x:Name="labelSumCredit" Content="" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Century Gothic" Margin="0,41,0,0" FontSize="14"/>
 
     </Grid>
 </Window>

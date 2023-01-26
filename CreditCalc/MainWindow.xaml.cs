@@ -45,6 +45,7 @@ namespace CreditCalc
             double percentPay = 0;
             double percentPayCount = 0;
             double SumDebt = 0;
+            double effectivePercent = 0;
             try {
                 SumCredit = Convert.ToDouble(SummCreditTextBox.Text);
                 PercentCredit = Convert.ToDouble(PercentCreditTextBox.Text) / 100;
@@ -54,13 +55,14 @@ namespace CreditCalc
                 RamainsPay = SumCredit;
                 mainDebt = SumCredit / MonthQuantity;
                 int month = 1;
+                
                 for (int i = 0; i < MonthQuantity; i++)
                 { 
                     
                     Pays[i] = Math.Round(SumCredit / MonthQuantity + RamainsPay * PercentCredit / MonthQuantity, 4); //вычисление оплаты в месяц
                     RamainsPay -= SumCredit / MonthQuantity;//остаток по оплате
-                    percentPay = Pays[i] -mainDebt ;
-                    percentPayCount += percentPay;//переплата по кредиту (внести в listview)
+                    percentPay = Pays[i] - mainDebt ;
+                    percentPayCount += percentPay;
                     cred = new Credits { Month = Convert.ToString(month), Pays = Pays[i],Ramains = RamainsPay,MainDebt = mainDebt,PercentPay = percentPay};
                     month++;
                     pay.Add(cred);
@@ -68,6 +70,7 @@ namespace CreditCalc
             }
             catch { MessageBox.Show("Неверный формат числа", "Ошибка"); }
             SumDebt = SumCredit + percentPayCount;
+            effectivePercent = Math.Round((( SumDebt * 100)/ SumCredit) - 100,2);
             labelRamains.Content =Math.Round( percentPayCount,2);
             labelSumCredit.Content =Math.Round( SumDebt,2);
             listView.ItemsSource = pay; 
